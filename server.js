@@ -26,13 +26,13 @@ db.on('open', () => {
     console.log('Connection made!');
 });
 
-// //Enable CORS for all HTTP methods
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-//   });
+//Enable CORS for all HTTP methods
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 
 //SHOW
@@ -49,11 +49,11 @@ app.post('/post', (req, res) => {
 });
 
 // //EDIT
-app.get('/edit/:id', (req, res) => {
-  List.findById(req.params.id, (err, data) => {
-    res.json(data)
-  })
-});
+// app.get('/edit/:id', (req, res) => {
+//   List.findById(req.params.id, (err, data) => {
+//     res.json(data)
+//   })
+// });
 
 //UPDATE
 app.put('/:id', (req, res) => {
