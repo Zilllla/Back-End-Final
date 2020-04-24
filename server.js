@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 });
 
 //CREATE
-app.post('/', (req, res) => {
+app.post('/post', (req, res) => {
   List.create(req.body)
     .then(data => res.json(data));
 });
@@ -61,6 +61,13 @@ app.put('/:id', (req, res) => {
     res.json(data)
   });
 });
+
+//DELETE
+app.delete('/:id', (req, res) => {
+  List.findByIdAndRemove(req.params.id, (err, data) => {
+    res.json(data)
+  })
+})
 
 
 
